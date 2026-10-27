@@ -54,6 +54,11 @@ type Logger struct {
 	callerSkip int
 
 	clock zapcore.Clock
+
+	// observation, when set, is the buffering scope Core installed by the
+	// WithObservation option. It is shared with loggers derived via
+	// With/Named/WithOptions and backs the Observation method.
+	observation *zapcore.ScopeCore
 }
 
 // New constructs a new Logger from the provided zapcore.Core and Options. If
